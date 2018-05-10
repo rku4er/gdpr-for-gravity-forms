@@ -53,7 +53,9 @@ class GravityForms
             foreach ($entries as $entry) {
 
                 foreach ($fields as $field) {
-                    $data[$title][$field['label']] = $entry[$field['id']];
+                    if (!empty($entry[$field['id']])) {
+                        $data[$title][$field['label']] = $entry[$field['id']];
+                    }
                 }
 
                 $data[$title]['date']       = $entry['date_created'];
